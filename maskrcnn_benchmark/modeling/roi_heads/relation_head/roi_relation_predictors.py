@@ -80,8 +80,9 @@ class TransformerPredictor(nn.Module):
             layer_init(self.up_dim, xavier=True)
         else:
             self.union_single_not_match = False
-
-        self.freq_bias = FrequencyBias(config, statistics)
+        
+        if self.train_use_bias or self.predict_use_bias:
+            self.freq_bias = FrequencyBias(config, statistics)
 
     def forward(self, proposals, rel_pair_idxs, rel_labels, rel_binarys, roi_features, union_features, logger=None):
         """
