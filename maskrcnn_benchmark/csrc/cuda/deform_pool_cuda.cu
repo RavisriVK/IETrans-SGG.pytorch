@@ -12,8 +12,13 @@
 #include <ATen/ATen.h>
 #include <ATen/cuda/CUDAContext.h>
 
-#include <THC/THC.h>
-#include <THC/THCDeviceUtils.cuh>
+// #include <THC/THC.h>
+// #include <THC/THCAtomics.cuh>
+#include <ATen/cuda/Atomic.cuh>
+// #include <THC/THCDeviceUtils.cuh>
+#include <ATen/cuda/DeviceUtils.cuh>
+#include <ATen/ceil_div.h>
+#include <ATen/cuda/ThrustAllocator.h>
 
 #include <vector>
 #include <iostream>
